@@ -1,21 +1,11 @@
 import streamlit as st
 import base64
 import json
-import mysql.connector
 import re
 
 # --- Streamlit Setup ---
 st.set_page_config("📜 Emigration Government Records Scanner", layout="wide")
 st.title("📜 Government Emigration Record Scanner")
-
-# --- MySQL DB Setup ---
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",  # Update as needed
-    database="emigration_db"
-)
-my_cursor = mydb.cursor()
 
 def insert_to_db(data, image_bytes):
     query = '''
